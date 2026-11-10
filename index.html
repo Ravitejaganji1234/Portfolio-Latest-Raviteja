@@ -90,17 +90,17 @@
     </div>
     <div class="hero-stats reveal-up">
       <div class="stat">
-        <span class="stat-num" data-target="2">0</span><span class="stat-plus">.5</span>
-        <span class="stat-label">Years Exp</span>
+        <span class="stat-num" data-target="2.5" data-decimals="1">0</span>
+        <span class="stat-label">Years Experience</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num" data-target="3">0</span><span class="stat-plus"></span>
+        <span class="stat-num" data-target="3">0</span>
         <span class="stat-label">Cloud Projects</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat">
-        <span class="stat-num" data-target="2">0</span><span class="stat-plus"></span>
+        <span class="stat-num" data-target="2">0</span>
         <span class="stat-label">Azure Certifications</span>
       </div>
     </div>
@@ -202,7 +202,7 @@
             <div class="terminal-line t-output" data-delay="2200">az-900&nbsp;&nbsp;Active&nbsp;&nbsp;Current</div>
             <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cmd" data-delay="2500">echo $LOCATION</span></div>
             <div class="terminal-line t-output" data-delay="2900">Bengaluru, India</div>
-            <div class="terminal-line"><span class="t-prompt">$ </span><span class="t-cursor">▋</span></div>
+            <div class="terminal-line" data-delay="3300"><span class="t-prompt">$ </span><span class="t-cursor">▋</span></div>
           </div>
         </div>
       </div>
@@ -227,11 +227,11 @@
           <div class="skill-cat-icon">☁</div>
           <h3>Cloud Platforms</h3>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">AZURE</div>
-        <div class="tc-tags" style="margin-bottom:1.4rem;">
+        <div class="skill-group-label">AZURE</div>
+        <div class="tc-tags skill-tags">
           <span>App Service</span><span>AKS</span><span>ACR</span><span>VMs</span><span>VNet</span><span>NSG</span><span>Key Vault</span><span>Azure Monitor</span><span>Log Analytics</span><span>Microsoft Entra ID</span><span>Storage</span><span>MySQL / PostgreSQL Flexible Server</span>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">GCP</div>
+        <div class="skill-group-label">GCP</div>
         <div class="tc-tags">
           <span>Compute Engine</span><span>GKE</span><span>VPC</span><span>IAM</span><span>Cloud Storage</span><span>Cloud Load Balancing</span><span>Cloud Monitoring</span><span>Cloud SQL</span>
         </div>
@@ -242,11 +242,11 @@
           <div class="skill-cat-icon">⚙</div>
           <h3>CI/CD, GitOps &amp; Containers</h3>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">CI/CD &amp; GITOPS</div>
-        <div class="tc-tags" style="margin-bottom:1.4rem;">
+        <div class="skill-group-label">CI/CD &amp; GITOPS</div>
+        <div class="tc-tags skill-tags">
           <span>Azure DevOps Pipelines</span><span>Jenkins</span><span>GitHub Actions</span><span>Argo CD</span><span>Git</span>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">CONTAINERS &amp; ORCHESTRATION</div>
+        <div class="skill-group-label">CONTAINERS &amp; ORCHESTRATION</div>
         <div class="tc-tags">
           <span>Docker</span><span>Kubernetes (AKS, GKE)</span><span>Helm</span><span>Ingress</span><span>HPA</span>
         </div>
@@ -257,11 +257,11 @@
           <div class="skill-cat-icon">🛡</div>
           <h3>IaC &amp; DevSecOps</h3>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">INFRASTRUCTURE AS CODE</div>
-        <div class="tc-tags" style="margin-bottom:1.4rem;">
+        <div class="skill-group-label">INFRASTRUCTURE AS CODE</div>
+        <div class="tc-tags skill-tags">
           <span>Terraform</span><span>Modules</span><span>Remote State</span>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">DEVSECOPS</div>
+        <div class="skill-group-label">DEVSECOPS</div>
         <div class="tc-tags">
           <span>SonarQube</span><span>Trivy</span><span>Azure Key Vault</span><span>RBAC</span><span>Least-privilege access</span>
         </div>
@@ -272,11 +272,11 @@
           <div class="skill-cat-icon">&lt;/&gt;</div>
           <h3>Monitoring, SRE &amp; Scripting</h3>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">MONITORING &amp; SRE</div>
-        <div class="tc-tags" style="margin-bottom:1.4rem;">
+        <div class="skill-group-label">MONITORING &amp; SRE</div>
+        <div class="tc-tags skill-tags">
           <span>Azure Monitor</span><span>Log Analytics</span><span>Prometheus</span><span>Grafana</span><span>Alerting</span><span>Incident response</span><span>Runbooks</span><span>Root-cause analysis</span>
         </div>
-        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--accent);letter-spacing:1px;margin-bottom:0.6rem;">SCRIPTING &amp; OS</div>
+        <div class="skill-group-label">SCRIPTING &amp; OS</div>
         <div class="tc-tags">
           <span>Bash</span><span>Python</span><span>SQL</span><span>Linux (Ubuntu)</span><span>Windows Server</span>
         </div>
@@ -567,7 +567,7 @@
       </div>
 
       <div class="contact-right reveal-right">
-        <form class="contact-form" id="contact-form" onsubmit="sendMail(event)">
+        <form class="contact-form" id="contact-form" onsubmit="handleFormSubmit(event)">
           <div class="form-group">
             <label>Your Name</label>
             <input type="text" placeholder="John Doe" required />
@@ -609,33 +609,5 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-  // Rotating hero titles: kept in line with the resume headline
-  try {
-    roles.splice(0, roles.length,
-      'Cloud & DevOps Engineer',
-      'Azure | GCP',
-      'Kubernetes (AKS, GKE)',
-      'CI/CD & GitOps',
-      'Infrastructure as Code with Terraform'
-    );
-  } catch (err) {}
-
-  // Contact form: opens the visitor's email app with the message pre-filled
-  // (static sites have no backend, so this sends it to your real inbox).
-  function sendMail(e) {
-    e.preventDefault();
-    const f = e.target;
-    const name    = f.querySelectorAll('input')[0].value.trim();
-    const email   = f.querySelectorAll('input')[1].value.trim();
-    const subject = f.querySelectorAll('input')[2].value.trim() || 'Portfolio enquiry';
-    const message = f.querySelector('textarea').value.trim();
-    const body = `${message}\n\n— ${name} (${email})`;
-    window.location.href =
-      'mailto:ravitejaganji49@gmail.com' +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
-  }
-</script>
 </body>
 </html>

@@ -139,6 +139,11 @@ document.addEventListener('mousemove', (e) => {
   cy = e.clientY;
   cursor.style.left = cx + 'px';
   cursor.style.top = cy + 'px';
+  if (!cursor.classList.contains('ready')) {
+    fx = cx; fy = cy;
+    cursor.classList.add('ready');
+    follower.classList.add('ready');
+  }
 });
 
 function animateCursor() {
@@ -208,10 +213,10 @@ document.querySelectorAll('.mobile-link').forEach(link => {
 // ========= TYPED EFFECT =========
 const roles = [
   'Cloud & DevOps Engineer',
-  'Azure Infrastructure Architect',
-  'Kubernetes Orchestration Expert',
-  'CI/CD Pipeline Builder',
-  'GitOps Practitioner',
+  'Azure | GCP',
+  'Kubernetes (AKS, GKE)',
+  'CI/CD & GitOps',
+  'Infrastructure as Code with Terraform',
 ];
 
 let roleIndex = 0, charIndex = 0, deleting = false;
@@ -267,16 +272,17 @@ function initCounters() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const target = parseInt(entry.target.dataset.target);
+        const target = parseFloat(entry.target.dataset.target);
+        const decimals = parseInt(entry.target.dataset.decimals || '0', 10);
         let current = 0;
         const increment = target / 60;
         const update = () => {
           current += increment;
           if (current < target) {
-            entry.target.textContent = Math.floor(current);
+            entry.target.textContent = decimals ? current.toFixed(decimals) : Math.floor(current);
             requestAnimationFrame(update);
           } else {
-            entry.target.textContent = target;
+            entry.target.textContent = target.toFixed(decimals);
           }
         };
         requestAnimationFrame(update);
@@ -287,21 +293,6 @@ function initCounters() {
   stats.forEach(s => observer.observe(s));
 }
 
-// ========= SKILL BARS =========
-const skillFills = document.querySelectorAll('.skill-fill');
-const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const width = entry.target.dataset.width;
-      setTimeout(() => {
-        entry.target.style.width = width + '%';
-      }, 200);
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-skillFills.forEach(f => skillObserver.observe(f));
-
 // ========= TERMINAL ANIMATION =========
 function initTerminal() {
   const lines = document.querySelectorAll('.terminal-line');
@@ -309,6 +300,16 @@ function initTerminal() {
     const delay = parseInt(line.querySelector('[data-delay]')?.dataset.delay || line.dataset?.delay || 0);
     line.style.animationDelay = delay + 'ms';
   });
+
+  const body = document.getElementById('terminal-body');
+  if (!body) return;
+  const termObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      body.classList.add('play');
+      termObserver.disconnect();
+    }
+  }, { threshold: 0.3 });
+  termObserver.observe(body);
 }
 
 // ========= SMOOTH SCROLL =========
@@ -323,26 +324,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========= FORM SUBMIT =========
+// Static site (no backend): opens the visitor's email app with the message pre-filled.
 function handleFormSubmit(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  const text = document.getElementById('submit-text');
-  
-  btn.disabled = true;
-  text.textContent = 'Sending...';
-  btn.style.opacity = '0.7';
+  const f = e.target;
+  const inputs = f.querySelectorAll('input');
+  const name    = inputs[0].value.trim();
+  const email   = inputs[1].value.trim();
+  const subject = inputs[2].value.trim() || 'Portfolio enquiry';
+  const message = f.querySelector('textarea').value.trim();
+  const body = `${message}\n\n— ${name} (${email})`;
 
+  document.getElementById('submit-text').textContent = 'Opening your email app...';
+  window.location.href =
+    'mailto:ravitejaganji49@gmail.com' +
+    '?subject=' + encodeURIComponent(subject) +
+    '&body=' + encodeURIComponent(body);
   setTimeout(() => {
-    text.textContent = '✓ Message Sent!';
-    btn.style.background = 'var(--accent2)';
-    btn.style.opacity = '1';
-    e.target.reset();
-    setTimeout(() => {
-      text.textContent = 'Send Message';
-      btn.style.background = '';
-      btn.disabled = false;
-    }, 3000);
-  }, 1500);
+    document.getElementById('submit-text').textContent = 'Send Message';
+  }, 3000);
 }
 
 // ========= PARALLAX ON HERO =========
